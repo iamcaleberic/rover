@@ -16,6 +16,6 @@ class Rover
 	end
 
 	def full_name
-		"#{self.year.to_s} #{self.make} (#{self.color}) for travel on #{self.planet}"
+		"#{self.make} #{self.year.to_s} (#{self.color}) for travel on #{self.planet}"
 	end
 end
