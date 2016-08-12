@@ -99,4 +99,48 @@ describe 'Expectation Matchers' do
 		end
 
 	end
+
+	describe "collection matchers" do
+		it "Wil match arrays" do
+			caleb = [1,2,3,5]
+
+			expect(caleb).to include(3)
+			expect(caleb).to include(1,5)
+
+			expect(caleb).to start_with(1)
+			expect(caleb).to end_with(5)
+
+			expect(caleb).to match_array([5,3,2,1])
+			expect(caleb).not_to match_array([4,3])
+
+			expect(caleb).to contain_exactly(5,3,2,1)
+			expect(caleb).not_to contain_exactly(1,2)
+		end
+
+		it "will match string" do 
+			string = "i am caleb"
+
+			expect(string).to include('i')
+			expect(string).to include('i' , 'caleb')
+
+			expect(string).to start_with('i')
+			expect(string).to end_with('caleb')
+		end
+
+		it "will match hashes" do
+
+			hash = {:a => 1, :b => 3 , :c => 3}
+
+			expect(hash).to include(:a)
+			expect(hash).to include(:a => 1)
+
+			expect(hash).to include(:a => 1 , :c => 3)
+			expect(hash).to include({:a => 1 , :c => 3})
+
+			expect(hash).not_to include({'a' => 1 , 'c' => 3})
+
+
+		end
+	end
+
 end
