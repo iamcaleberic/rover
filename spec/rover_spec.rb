@@ -1,6 +1,7 @@
 require 'rover'
 
 describe "rover " do
+
 	describe 'attributes' do
 
 		it "Allows reading and writing for :make" do
@@ -31,6 +32,10 @@ describe "rover " do
 			rover =  Rover.new
 			expect(rover.wheels).to eq(4)
 		end
+
+		it "Allows writing of doors" 
+
+		
 	end
 
 	describe '.colors' do 
