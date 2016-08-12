@@ -204,4 +204,54 @@ describe 'Expectation Matchers' do
 		end
 	end
 
+	describe 'predicate matchers' do 
+		it "will match be_* to custom methods ending in ?" do
+			# ruby methods that rspec drops be_ and adds the ? 
+
+			expect([]).to be_empty 
+			expect(1).to be_integer
+			expect(0).to be_zero
+			expect(1).to be_nonzero
+			expect(1).to be_odd
+			expect(2).to be_even
+
+			class Jet 
+				def visible? ;true ;end
+			end
+
+			royal = Jet.new
+			expect(royal).to be_visible # a custom method being called by rspec be_
+
+			# same as 
+
+			expect(royal.visible?).to be true
+		end
+
+		it "will match have_* to custom methods like has_*" do
+			# changes have_ to has_ and adds ? ie calls on method on object
+
+			# built in methods
+			hash = {:a => 1 , :b => 2}
+			expect(hash).to have_key(:a)
+			expect(hash).to have_value(2)
+
+
+			# custom methods
+
+			class Buyer
+				def has_pending_order? ;true ; end
+			end			
+
+			buyer = Buyer.new 
+
+			expect(buyer).to have_pending_order
+
+			#same as
+			expect(buyer.has_pending_order?).to be true
+
+
+
+
+		end
+	end
 end
