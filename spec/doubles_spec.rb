@@ -129,8 +129,9 @@ describe "Doubles" do
             expect(dbl).to receive(:step_1)
             expect(dbl).to receive(:step_2)
 
-            dbl.step_1
             dbl.step_2
+            dbl.step_1
+           
         end
 
         it "works with #ordered when order matters" do
