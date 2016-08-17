@@ -1,4 +1,5 @@
 require 'rover'
+require 'shared_examples/a_standard_space_auto'
 
 describe Rover  do
 
@@ -10,33 +11,7 @@ describe Rover  do
 		# method call
 		# let(:rover) {Rover.new}
 		# subject {Rover.new}
-
-		it "Allows reading and writing for :make" do
-			subject.make = "Test"
-			expect(subject.make).to eq("Test")
-		end
-
-		it "Allows reading and writing for :year" do
-			subject.year = 000
-			expect(subject.year).to eq(000)
-		end
-
-		it "Allows reading and writing for :color" do
-			subject.color = "Test"
-			expect(subject.color).to eq("Test")
-		end
-
-		it "Allows reading and writing for :planet" do
-			subject.make = "Test"
-			expect(subject.make).to eq("Test")
-		end
-
-		it "Allows reading for :wheels" do
-			expect(subject.wheels).to eq(4)
-		end
-
-		it "Allows writing of doors" 
-
+		it_behaves_like('a standard space auto')
 		
 	end
 
