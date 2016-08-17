@@ -118,5 +118,13 @@ def no_output(&block)
   end
 end
 
-
+def capture_output(&block)
+  original_stdout = $stdout.dup
+  output_catcher = StringIO.new
+  $stdout = output_catcher
+  begin
+    yield
+  ensure
+    $stdout = original_stdout
+  end
 end
