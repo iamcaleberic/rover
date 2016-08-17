@@ -1,7 +1,6 @@
 describe "Doubles" do 
-
     it "allows stubbing methods" do 
-        dbl = double("Scream")
+        dbl = double("Scream")  
         allow(dbl).to receive(:hey!)
         expect(dbl).to respond_to(:hey!)
     end
@@ -42,6 +41,22 @@ describe "Doubles" do
         expect(die.roll).to eq(2)
         expect(die.roll).to eq(6)
         expect(die.roll).to eq(6)
+    end
+
+    context 'with partial test doubles' do
+        it "allows stubbing instance methods on Ruby Classes" do 
+
+        end
+
+        it "allows stubbing instance methods on custom classes" do 
+        end
+
+        it "allows stubbing class methods on Ruby Classes" do 
+
+        end
+
+        it "allows stubbing database calls a mock object" do
+        end
     end
 
 end
