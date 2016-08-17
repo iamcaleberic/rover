@@ -48,7 +48,7 @@ describe "Doubles" do
             time = Time.new(2016, 1, 1, 2, 12, 0, 0)
             allow(time).to receive(:year).and_return(1905)
 
-            expect(time.to_s).to eq('2016-01,01 12:00:00 +0100'
+            expect(time.to_s).to eq('2016-01-01 02:12:00 +0000'
             )
             expect(time.year).to eq(1905)
         end
@@ -61,9 +61,9 @@ describe "Doubles" do
             caleb.name = "Mitigator" 
             expect(caleb.name).to eq("Mitigator")
 
-            allow(hero).to receive(:name).and_return('Kline')
+            allow(caleb).to receive(:name).and_return('Kline')
             
-            expect(hero.name).to eq('Kline')
+            expect(caleb.name).to eq('Kline')
         end
 
         it "allows stubbing class methods on Ruby Classes" do 
@@ -71,7 +71,7 @@ describe "Doubles" do
             allow(Time).to receive(:now).and_return(fixed)
 
             expect(Time.now).to eq fixed
-            expect(Time.now.to_s).to eq('2016-01,01 12:00:00 +0100'
+            expect(Time.now.to_s).to eq('2016-01-01 02:12:00 +0000'
             )
             expect(Time.now.year).to eq(2016)
 
@@ -85,19 +85,34 @@ describe "Doubles" do
                 end
             end
 
-        dbl = double("Mock squad")
-        allow(dbl).to receive(:name).and_return('Goon')
-        
-        allow(Squad).to receive(:find).and_return(dbl)
+            dbl = double("Mock squad")
+            allow(dbl).to receive(:name).and_return('Goon')
+            
+            allow(Squad).to receive(:find).and_return(dbl)
 
-        squad = Squad.find
-        expect(squad.name).to eq('Goon')
+            squad = Squad.find
+            expect(squad.name).to eq('Goon')
 
         end
 
         it "allows stubbing database calls with many mock objects " do
-        
+            class Squad
+                attr_accessor :name
+
+                def self.all
+                end
+    
+            end
+
+            sq1 = double("Squad one", :name => "Goon")
+            sq2 = double("Squad two", :name => "Geek")
+            
+           
+            allow(Squad).to receive(:all).and_return([sq1, sq2])
+
+            squads = Squad.all
+            expect(squads[1].name).to eq('Geek')
+      
         end
     end
-
 end
