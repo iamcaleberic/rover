@@ -7,7 +7,7 @@ shared_examples_for('a standard space auto') do
 
         it "allows reading and writing of :year " do 
             subject.year = 000
-			expect(subject.year).to eq(000
+			expect(subject.year).to eq(000)
         end
 
         it "allows reading and writing of :color" do
@@ -16,8 +16,8 @@ shared_examples_for('a standard space auto') do
         end
        
         it "Allows reading and writing for :planet" do
-			subject.make = "Test"
-			expect(subject.make).to eq("Test")
+			subject.planet = "My planet"
+			expect(subject.planet).to eq("My planet")
 		end
 
         it "Allows reading for :wheels" do
