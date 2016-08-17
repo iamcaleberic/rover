@@ -105,3 +105,18 @@ RSpec.configure do |config|
 =end
 end
 APP_ROOT = File.expand_path('../..', __FILE__)
+
+#  Some helper methods & exception blocks
+def no_output(&block)
+  original_stdout = $stdout.dup
+  $stdout.reopen('/dev/null')
+  $stdout.sync = true
+  begin
+    yield
+  ensure 
+    $stdout.reopen(original_stdout)    
+  end
+end
+
+
+end
