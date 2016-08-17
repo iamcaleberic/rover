@@ -12,7 +12,7 @@ describe Rover  do
 		# let(:rover) {Rover.new}
 		# subject {Rover.new}
 		it_behaves_like('a standard space auto')
-		
+		  
 	end
 
 	describe '.colors' do 
