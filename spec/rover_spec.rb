@@ -40,22 +40,22 @@ describe "rover " do
 	end
 
 	describe '.colors' do 
+		let(:colors) {['blue' , 'black' , 'red ' , 'green']}
 		it "Returns an array of color names " do
-			c =	['blue' , 'black' , 'red ' , 'green']
-			expect(Rover.color).to match_array(c)
+			expect(Rover.color).to match_array(colors)
 		end
 	end
 
 	describe '#full_name' do
+		let(:mars) { Rover.new(:make => "Mars Rover" , :year => 2016 , :color => "black" , :planet => 'mars')}
+		let(:new_rover){ Rover.new }
 		it "Returns a string in the expected format" do
-			@mars = Rover.new(:make => "Mars Rover" , :year => 2016 , :color => "black" , :planet => 'mars')
-			expect(@mars.full_name).to eq('Mars Rover 2016 (black) for travel on mars' )
+			expect(mars.full_name).to eq('Mars Rover 2016 (black) for travel on mars' )
 		end
 
 		context "When intialized with no arguments" do
 			it "Returns a string using default values" do
-				@rover  =  Rover.new
-				expect(@rover.full_name).to eq("Calebs Rover 2139 (unknown) for travel on Caleb's planet")
+				expect(new_rover.full_name).to eq("Calebs Rover 2139 (unknown) for travel on Caleb's planet")
 			end
 		end
 	end
