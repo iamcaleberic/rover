@@ -98,7 +98,7 @@ describe "Doubles" do
         it "allows stubbing database calls with many mock objects " do
             class Squad
                 attr_accessor :name
-
+ 
                 def self.all
                 end
     
@@ -113,6 +113,20 @@ describe "Doubles" do
             squads = Squad.all
             expect(squads[1].name).to eq('Geek')
       
+        end
+    end
+    
+    context "with message expectations" do
+        it "expects a call and allows a response" do
+            dbl = double("Scream")
+            expect(dbl).to receive(:hey!).and_return("Please Help!")
+            dbl.hey!
+        end
+
+        it "does not matter in what order" do 
+        end
+
+        it "works with #ordered when order matters" do
         end
     end
 end
