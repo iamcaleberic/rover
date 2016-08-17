@@ -48,14 +48,15 @@ describe "rover " do
 
 	describe '#full_name' do
 		let(:mars) { Rover.new(:make => "Mars Rover" , :year => 2016 , :color => "black" , :planet => 'mars')}
-		let(:new_rover){ Rover.new }
+		# if variable is subject of example
+		subject { Rover.new }
 		it "Returns a string in the expected format" do
 			expect(mars.full_name).to eq('Mars Rover 2016 (black) for travel on mars' )
 		end
 
 		context "When intialized with no arguments" do
 			it "Returns a string using default values" do
-				expect(new_rover.full_name).to eq("Calebs Rover 2139 (unknown) for travel on Caleb's planet")
+				expect(subject.full_name).to eq("Calebs Rover 2139 (unknown) for travel on Caleb's planet")
 			end
 		end
 	end
