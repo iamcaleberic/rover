@@ -48,12 +48,22 @@ describe "Doubles" do
             time = Time.new(2016, 1, 1, 2, 12, 0, 0)
             allow(time).to receive(:year).and_return(1905)
 
-            expect(time.to_s).to eq('2016-01,01 12:00:00 -0500'
+            expect(time.to_s).to eq('2016-01,01 12:00:00 +0100'
             )
             expect(time.year).to eq(1905)
         end
 
-        it "allows stubbing instance methods on custom classes" do 
+        it "allows stubbing instance methods on custom classes" do
+            class Killjoy
+                attr_accessor :name
+            end
+            caleb =  Killjoy.new
+            caleb.name = "Mitigator" 
+            expect(caleb.name).to eq("Mitigator")
+
+            allow(hero).to receive(:name).and_return('Kline')
+            
+            expect(hero.name).to eq('Kline')
         end
 
         it "allows stubbing class methods on Ruby Classes" do 
