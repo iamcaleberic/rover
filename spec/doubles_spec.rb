@@ -67,6 +67,13 @@ describe "Doubles" do
         end
 
         it "allows stubbing class methods on Ruby Classes" do 
+            fixed = Time.new(2016, 1, 1, 2, 12, 0, 0)
+            allow(Time).to receive(:now).and_return(fixed)
+
+            expect(Time.now).to eq fixed
+            expect(Time.now.to_s).to eq('2016-01,01 12:00:00 +0100'
+            )
+            expect(Time.now.year).to eq(2016)
 
         end
 
