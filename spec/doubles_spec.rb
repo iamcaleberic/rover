@@ -124,9 +124,23 @@ describe "Doubles" do
         end
 
         it "does not matter in what order" do 
+            dbl = double("Multi-step Process")
+
+            expect(dbl).to receive(:step_1)
+            expect(dbl).to receive(:step_2)
+
+            dbl.step_1
+            dbl.step_2
         end
 
         it "works with #ordered when order matters" do
+            dbl = double("Multi-step Process")
+
+            expect(dbl).to receive(:step_1).ordered
+            expect(dbl).to receive(:step_2).ordered
+
+            dbl.step_1
+            dbl.step_2
         end
     end
 end
