@@ -45,7 +45,12 @@ describe "Doubles" do
 
     context 'with partial test doubles' do
         it "allows stubbing instance methods on Ruby Classes" do 
+            time = Time.new(2016, 1, 1, 2, 12, 0, 0)
+            allow(time).to receive(:year).and_return(1905)
 
+            expect(time.to_s).to eq('2016-01,01 12:00:00 -0500'
+            )
+            expect(time.year).to eq(1905)
         end
 
         it "allows stubbing instance methods on custom classes" do 
