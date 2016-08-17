@@ -78,6 +78,25 @@ describe "Doubles" do
         end
 
         it "allows stubbing database calls a mock object" do
+            class Squad
+                attr_accessor :name
+
+                def self.find
+                end
+            end
+
+        dbl = double("Mock squad")
+        allow(dbl).to receive(:name).and_return('Goon')
+        
+        allow(Squad).to receive(:find).and_return(dbl)
+
+        squad = Squad.find
+        expect(squad.name).to eq('Goon')
+
+        end
+
+        it "allows stubbing database calls with many mock objects " do
+        
         end
     end
 
