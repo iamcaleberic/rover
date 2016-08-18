@@ -148,19 +148,36 @@ describe "Doubles" do
 
     context "with argument constraints " do
         it "expects arguments will match" do
-    
+            dbl = double("Call of Duty")
+            expect(dbl).to receive(:sort).with('Ghosts')
+            dbl.sort('Ghosts')
         end
 
         it "passes when any arguments are allowed" do
+            dbl = double("Call of Duty")
+            expect(dbl).to receive(:sort).with(any_args)
+            dbl.sort('Ghosts')
         end
 
         it "works the same with multiple arguments" do
+            dbl = double("Call of Duty")
+            expect(dbl).to receive(:sort).with('Ghosts', true)
+            dbl.sort('Ghosts',true)
         end
 
         it "allows constraining only some arguments" do
+            dbl = double("Call of Duty")
+            expect(dbl).to receive(:sort).with('Ghosts', anything ,anything )
+            dbl.sort('Ghosts' ,true ,'desc')
         end
 
         it "allows using other matchers" do
+            dbl = double("Call of Duty")
+            expect(dbl).to receive(:sort).with(
+                a_string_starting_with('G'), 
+                an_object_eq_to('desc') | an_object_eq_to('desc'), boolean
+            )
+            dbl.sort('Ghosts', 'desc' ,true)
         end
     end
 end
