@@ -144,4 +144,23 @@ describe "Doubles" do
             dbl.step_2
         end
     end
+
+
+    context "with argument constraints " do
+        it "expects arguments will match" do
+    
+        end
+
+        it "passes when any arguments are allowed" do
+        end
+
+        it "works the same with multiple arguments" do
+        end
+
+        it "allows constraining only some arguments" do
+        end
+
+        it "allows using other matchers" do
+        end
+    end
 end
