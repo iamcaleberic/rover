@@ -219,7 +219,7 @@ describe "Doubles" do
             caleb.aston
             expect(caleb).to have received(:aston)
         end
-        
+         
         context "using let and a before hook " do
             let(:travel) do
                 spy("Travel", :process_flight_times => nil ,
@@ -227,6 +227,14 @@ describe "Doubles" do
                               :send_confirmation_email =>true
                     )
             end
+
+            before(:example) do 
+                travel.process_flight_times
+                travel.charge_credit_card
+                travel.send_confirmation_email
+            end
+
+            
         end
     end 
 
