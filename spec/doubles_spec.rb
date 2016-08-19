@@ -182,6 +182,18 @@ describe "Doubles" do
     end
 
     context "with spying abilities" do
+
+        it "can expect a call after it is received" do
+        end
+
+        it "can use message constraints" do
+        end
+
+        it "can expect any message already sent to a declared spy" do
+        end
+
+        it "can expect only allowed messages on partial doubles" do
+        end
     
-    end
+    end 
 end
