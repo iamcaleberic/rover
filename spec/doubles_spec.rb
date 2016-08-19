@@ -194,6 +194,9 @@ describe "Doubles" do
 
         it "can expect only allowed messages on partial doubles" do
         end
-    
+        
+        context "using let and a before hook " do
+        end
     end 
+
 end
