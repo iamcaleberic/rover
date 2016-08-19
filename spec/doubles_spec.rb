@@ -180,4 +180,8 @@ describe "Doubles" do
             dbl.sort('Ghosts', 'desc' ,true)
         end
     end
+
+    context "with spying abilities" do
+    
+    end
 end
