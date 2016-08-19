@@ -221,6 +221,12 @@ describe "Doubles" do
         end
         
         context "using let and a before hook " do
+            let(:travel) do
+                spy("Travel", :process_flight_times => nil ,
+                              :charge_credit_card => true, 
+                              :send_confirmation_email =>true
+                    )
+            end
         end
     end 
 
