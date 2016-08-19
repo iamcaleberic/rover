@@ -221,20 +221,30 @@ describe "Doubles" do
         end
          
         context "using let and a before hook " do
-            let(:travel) do
-                spy("Travel", :process_flight_times => nil ,
+            let(:ticket) do
+                spy("Ticket", :process_flight_times => nil ,
                               :charge_credit_card => true, 
                               :send_confirmation_email =>true
                     )
             end
 
             before(:example) do 
-                travel.process_flight_times
-                travel.charge_credit_card
-                travel.send_confirmation_email
+                ticket.process_flight_times
+                ticket.charge_credit_card
+                ticket.send_confirmation_email
             end
 
-            
+            it "calls #process_flight_times on the ticket" do
+                expect(ticket).to have_received(:process_flight_times)
+            end
+
+            it "calls #charge_credit_card on the ticket" do
+                expect(ticket).to have_received(:charge_credit_card)
+            end
+
+            it "calls #send_confirmation_email on the ticket" do
+                expect(ticket).to have_received(:send_confirmation_email)
+            end
         end
     end 
 
