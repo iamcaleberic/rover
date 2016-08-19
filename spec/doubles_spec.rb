@@ -184,15 +184,40 @@ describe "Doubles" do
     context "with spying abilities" do
 
         it "can expect a call after it is received" do
+            bond = spy("Scream")
+            allow(bond ).to receive(:hey!).and_return("Help me!")
+            bond.hey!
+            expect(bond).to have_received(:hey!)
         end
 
         it "can use message constraints" do
+             bond = spy("Scream")
+            allow(bond ).to receive(:hey!).and_return("Help me!")
+            bond.hey!
+            bond.hey!
+            bond.hey!
+            expect(bond).to have_received(:hey!).with(no_args).exactly(3).times
         end
 
         it "can expect any message already sent to a declared spy" do
+            bond = spy("Scream")
+            # You dont necessarily have to stub a spy before calling it
+            # allow(bond ).to receive(:aston)
+            bond.aston
+            expect(bond).to have_received(:aston)
         end
 
         it "can expect only allowed messages on partial doubles" do
+            class Spy 
+                def aston
+                    true
+                end
+            end
+            caleb = Spy.new
+            # with partial doubles they must be stubbed out first
+            allow(caleb).to receive(:aston)
+            caleb.aston
+            expect(caleb).to have received(:aston)
         end
         
         context "using let and a before hook " do
