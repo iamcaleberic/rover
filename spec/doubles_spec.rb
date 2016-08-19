@@ -217,7 +217,7 @@ describe "Doubles" do
             # with partial doubles they must be stubbed out first
             allow(caleb).to receive(:aston)
             caleb.aston
-            expect(caleb).to have received(:aston)
+            expect(caleb).to have_received(:aston)
         end
          
         context "using let and a before hook " do
