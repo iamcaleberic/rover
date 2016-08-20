@@ -12,7 +12,11 @@ describe Rover  do
 		# let(:rover) {Rover.new}
 		# subject {Rover.new}
 		it_behaves_like('a standard space auto')
-		  
+		
+		it "allows reading and writing for :doors" do
+			subject.door= 1
+			expect(subject.door).to eq(1)
+		end
 	end
 
 	describe '.colors' do 

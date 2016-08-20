@@ -1,7 +1,7 @@
 class Rover
 	attr_accessor :make , :year , :color , :planet
 	attr_reader :wheels
-	attr_writer :door
+	attr_accessor :door
 
 	def initialize(options={})
 		self.make = options[:make] || "Calebs Rover"
