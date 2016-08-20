@@ -19,6 +19,17 @@ describe Rover  do
 		end
 	end
 
+	describe '#initialize ' do 
+		it "defaults to 4 doors" do
+			expect(subject.door).to eq(4)
+		end
+
+		it "accepts an option for doors" do
+			rover = Rover.new(:door => 1 )
+			expect(rover.door).to eq(1)
+		end
+	end
+
 	describe '.colors' do 
 		let(:colors) {['blue' , 'black' , 'red ' , 'green']}
 		it "Returns an array of color names " do

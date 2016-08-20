@@ -4,10 +4,11 @@ class Rover
 	attr_accessor :door
 
 	def initialize(options={})
-		self.make = options[:make] || "Calebs Rover"
-		self.year = (options[:year] || 2139).to_i
-		self.color = options[:color] || "unknown" 
-		self.planet = options[:planet] || "Caleb's planet"
+		self.make   =  options[:make]     || "Calebs Rover"
+		self.year   =  (options[:year]    || 2139).to_i
+		self.color  =  options[:color]    || "unknown" 
+		self.planet =  options[:planet]   || "Caleb's planet"
+		self.door   =  options[:door]     || 4
 		@wheels = 4
 	end
 
