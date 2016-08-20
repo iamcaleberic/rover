@@ -27,6 +27,15 @@ describe Rover  do
 		it "accepts an option for doors" do
 			rover = Rover.new(:door => 1 )
 			expect(rover.door).to eq(1)
+		end 
+
+		it "defaults to 4 if option is neither 2 or 4" do
+			door_counts = []
+			[0,1,3,5,6].each do |n|
+				rover = Rover.new(:door => n)
+				door_counts << rover.door
+			end
+			expect(door_counts).to all( eq(4) )
 		end
 	end
 
