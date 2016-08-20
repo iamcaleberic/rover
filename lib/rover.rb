@@ -9,6 +9,7 @@ class Rover
 		self.color  =  options[:color]    || "unknown" 
 		self.planet =  options[:planet]   || "Caleb's planet"
 		self.door   =  options[:door]     || 4
+		self.door = 4 unless [2,4].include?(door)
 		@wheels = 4
 	end
 

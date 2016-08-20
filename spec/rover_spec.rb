@@ -26,7 +26,7 @@ describe Rover  do
 
 		it "accepts an option for doors" do
 			rover = Rover.new(:door => 1 )
-			expect(rover.door).to eq(1)
+			expect(rover.door).to eq(4)
 		end 
 
 		it "defaults to 4 if option is neither 2 or 4" do
