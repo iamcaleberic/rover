@@ -27,5 +27,6 @@ class Rover
 	end
 
 	def offmoon?
+		door == 4
 	end
 end
