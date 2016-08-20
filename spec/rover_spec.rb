@@ -61,5 +61,13 @@ describe Rover  do
 		end
 	end
 
-
+	describe "#onmoon?" do 
+		it "returns true if it has 2 doors" do
+			subject.door = 2
+			expect(subject.onmoon?).to be true
+		end
+	end
+	
+	describe "#offmoon?" do
+	end
 end
