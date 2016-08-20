@@ -20,4 +20,12 @@ class Rover
 	def full_name
 		"#{self.make} #{self.year.to_s} (#{self.color}) for travel on #{self.planet}"
 	end
+
+	def onmoon?
+		door == 2
+
+	end
+
+	# def offmoon?
+	# end
 end
