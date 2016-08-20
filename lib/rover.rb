@@ -26,6 +26,6 @@ class Rover
 
 	end
 
-	# def offmoon?
-	# end
+	def offmoon?
+	end
 end
