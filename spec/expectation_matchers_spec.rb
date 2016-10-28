@@ -317,11 +317,11 @@ describe 'Expectation Matchers' do
 		end
 	end
 
-	# describe "composing matchers" do
-	# 	it "will match all collection elements using a matchers" do
-	# 		array = [1,2,3]
-	# 		expect(array).to all(be < 5)
-	# 	end
+	describe "composing matchers" do
+		it "will match all collection elements using a matchers" do
+			array = [1,2,3]
+			expect(array).to all(be < 5)
+		end
 	#
 	# 	it "will match by sending matchers as arguments to matchers" do
 	# 		string = 'hello'
