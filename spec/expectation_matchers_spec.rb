@@ -311,8 +311,8 @@ describe 'Expectation Matchers' do
 
 			expect(10 * 10 ).to be_odd.or be > 50
 
-			array = ['hello','goodbye'].shuffle
-			expect(array.first).to eq("hello" || "goodbye")
+			# array = ['hello','goodbye'].shuffle
+			# expect(array.first).to eq("hello" || "goodbye")
 
 		end
 	end
